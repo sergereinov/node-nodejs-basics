@@ -1,5 +1,16 @@
+/*
+    Task:
+        implement function that writes 'process.stdin' data into file 'fileToWrite.txt' content
+        using Writable Stream
+*/
+
+import { createWriteStream } from 'node:fs';
+import { stdin } from 'node:process';
+
 const write = async () => {
-    // Write your code here 
+    stdin.pipe(
+        createWriteStream(new URL('./files/fileToWrite.txt', import.meta.url))
+    );
 };
 
 await write();
