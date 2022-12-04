@@ -14,4 +14,4 @@ const spawnChildProcess = async (args) => {
     fork(new URL('./files/script.js', import.meta.url), args);
 };
 
-spawnChildProcess();
+spawnChildProcess(['first-arg', 'second-one']);
