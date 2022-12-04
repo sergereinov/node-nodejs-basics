@@ -9,10 +9,10 @@ const performCalculations = async () => {
                 workerData: i + 10,
             });
             worker.on('message', msg => {
-                resolve({ id: worker.threadId, status: 'resolved', data: msg });
+                resolve({ id: i, status: 'resolved', data: msg });
             });
             worker.on('error', () => {
-                resolve({ id: worker.threadId, status: 'error', data: null });
+                resolve({ id: i, status: 'error', data: null });
             });
         })
     );
